@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+:root {
+    --font-main: "EB Garamond", serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background: linear-gradient(200deg, #2e0101, #5f0a0a);
+    color: #351500fa;
+    /* Garante que o fundo cubra toda a tela, mas sem forçar scroll desnecessário */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTAINER */
+.layout-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    /* Faz o grid ocupar o espaço disponível sem criar buracos */
+    flex-grow: 1; 
+}
+
+/* CARDS */
+.panel {
+    background: #eeeaca;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 15px 25px rgba(46, 1, 1, 0.747);
+
+    width: 100%;
+    box-sizing: border-box;
+    height: fit-content; /* Impede que o card estique verticalmente de forma bizarra */
+}
+
+/* DESKTOP POSIÇÃO */
+.panel-top-left {
+    grid-column: 1;
+}
+
+.panel-middle-right {
+    grid-column: 2;
+    justify-self: end;
+}
+
+.panel-bottom-left {
+    grid-column: 1;
+}
+
+/* BOTÃO CORRIGIDO */
+.btn-link {
+    display: flex;       
+    justify-content: center; 
+    margin-top: 1.5rem;  
+    margin-bottom: 0.5rem; 
+    
+    /* 👇 ADICIONE ESTAS DUAS LINHAS PARA TIRAR A LINHA AZUL */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+    color: inherit;         /* Impede que o navegador force a cor azul de link */
+}
+
+.btn-link button {
+    font-family: var(--font-main);
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 100px;
+    background: #b43f08c5;
+    color: #e2e2e2; /* A cor do seu texto (clara) vai prevalecer agora */
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 60%;          
+    height: 50px;        
+}
+
+.btn-link button:hover {
+    background: #df4b07c5;
+}
+/* CELULAR - CORRIGIDO */
+@media (max-width: 768px) {
+
+    body {
+        /* Evita que a página fique excessivamente longa no mobile */
+        min-height: 100vh; 
+    }
+
+    .layout-page {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem; /* Ajuste leve no respiro lateral e vertical */
+        justify-content: center; /* Centraliza verticalmente o bloco inteiro se sobrar tela */
+        flex-grow: 1;
+    }
+
+    .panel {
+        /* Define um tamanho padrão e centraliza o conteúdo interno se necessário */
+        box-shadow: 0 10px 20px rgba(46, 1, 1, 0.5);
+    }
+
+    /* Alternância lateral organizada de forma limpa */
+    .panel-top-left,
+    .panel-bottom-left {
+        align-self: flex-start;
+        width: 88%; /* Um pouco mais largo para aproveitar melhor telas pequenas */
+    }
+
+    .panel-middle-right {
+        align-self: flex-end;
+        width: 88%;
+    }
+}
