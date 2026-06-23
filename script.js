@@ -23,13 +23,13 @@ function atualizar() {
         meses += 12;
     }
 
-    document.getElementById("anos").textContent = `Anos: ${anos}`;
-    document.getElementById("meses").textContent = `Meses: ${meses}`;
-    document.getElementById("semanas").textContent = `Semanas: ${semanas}`;
-    document.getElementById("dias").textContent = `Dias: ${dias}`;
-    document.getElementById("horas").textContent = `Horas: ${horas}`;
-    document.getElementById("minutos").textContent = `Minutos: ${minutos}`;
-    document.getElementById("segundos").textContent = `Segundos: ${segundos}`;
+    document.getElementById("anos").textContent = anos;
+    document.getElementById("meses").textContent = meses;
+    document.getElementById("semanas").textContent = semanas;
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
 }
 
 atualizar();

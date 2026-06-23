@@ -7,13 +7,32 @@
 body {
     margin: 0;
     font-family: var(--font-main);
-    background: linear-gradient(200deg, #2e0101, #5f0a0a);
+    background: linear-gradient(200deg, #6b0917ce, #c90d0d);
     color: #351500fa;
     /* Garante que o fundo cubra toda a tela, mas sem forçar scroll desnecessário */
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
 }
+
+/* Partículas ficam atrás do conteúdo */
+#tsparticles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Conteúdo acima das partículas */
+.layout-page, .panel {
+    position: relative;
+    z-index: 1;
+}
+
+/* Coração desenhado (contorno preto) no container que contém o botão */
+/* Para a página inicial (index) usamos .home-panel; para o contador usamos .container */
+
+
 
 /* CONTAINER */
 .layout-page {
@@ -30,9 +49,65 @@ body {
     flex-grow: 1; 
 }
 
+/* Estilo do calendário de tempo (contador) */
+.grid-calendar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+}
+
+.time-card {
+    background: linear-gradient(180deg, #ffffff, #f7f2ea);
+    border-radius: 10px;
+    padding: 0.6rem 0.5rem;
+    box-shadow: 0 6px 14px rgba(46,1,1,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(46,1,1,0.05);
+    min-height: 64px;
+}
+
+.time-value {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #b43f08;
+    line-height: 1;
+}
+
+.time-label {
+    margin-top: 0.25rem;
+    font-size: 0.72rem;
+    color: #3b1a12;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Ajustes no título dentro do contador */
+.container h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.15rem;
+    color: #fff9f4;
+    text-shadow: 0 1px 4px rgba(46,1,1,0.45);
+}
+
+@media (min-width: 1200px) {
+    .time-value { font-size: 1.5rem; }
+    .time-card { padding: 0.8rem 0.75rem; min-height: 78px; }
+}
+
+@media (max-width: 480px) {
+    .grid-calendar { grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 0.45rem; }
+    .time-value { font-size: 1.05rem; }
+    .time-card { padding: 0.45rem 0.4rem; min-height: 56px; }
+}
+
 /* CARDS */
 .panel {
-    background: #eeeaca;
+    background: #e4d3dbcc;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 15px 25px rgba(46, 1, 1, 0.747);
@@ -70,16 +145,17 @@ body {
 
 .btn-link button {
     font-family: var(--font-main);
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 100px;
-    background: #b43f08c5;
+    background: #cf3449c5;
     color: #e2e2e2; /* A cor do seu texto (clara) vai prevalecer agora */
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
-    width: 60%;          
-    height: 50px;        
+    min-width: 160px;
+    width: auto;
+    height: 50px;
 }
 
 .btn-link button:hover {
@@ -107,6 +183,31 @@ body {
         box-shadow: 0 10px 20px rgba(46, 1, 1, 0.5);
     }
 
+    .btn-link button {
+        width: 100%;
+        min-width: 0;
+    }
+
+
+/* Bottom buttons container spacing */
+.bottom-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    margin-bottom: 3.25rem;
+}
+
+@media (max-width: 768px) {
+    .bottom-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .bottom-buttons .btn-link { width: 100%; }
+}
     /* Alternância lateral organizada de forma limpa */
     .panel-top-left,
     .panel-bottom-left {

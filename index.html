@@ -1,33 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina1</title>
+    <title>Início</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .home-center { display:flex; align-items:center; justify-content:center; min-height:60vh; }
+        .home-panel { text-align:center; max-width:720px; margin:0 auto; }
+        .home-panel h1 { margin-top:0; }
+    </style>
 </head>
 <body>
+    <div id="tsparticles"></div>
 
-    <main class="layout-page">
-        
-        <section class="panel panel-top-left">
-            <h2>Para Meu bem</h2>
-            <p>Tudo começou no dia 02/05/2026. Após aquela conversa, tudo mudou. 
-                <br>Desde então, cada dia tem sido uma nova história para guardar.</p>
-        </section>
-
-        <section class="panel panel-middle-right">
-          
-            <p>Aqui ficará registrado o momento que que tudo começou, e para nós lembrar sempre que o tempo voa. Não podemos disperdiçalo, pois ele é sagrado, então temos que demontrar todo o nosso amor sempre. Porque só Deus sabe o que o tempo nós espera.</p>
-        </section>
-
-        <section class="panel panel-bottom-left">
-           <p>Ainda estamos escrevendo essa história, mas gosto de como ela começou, e a cada capitulo me apaixono mais por esse roteiro. Onde o roteiris é ninguem mais ninguem menos que o criador do mundo, e de uma coisa eu tenho certeza é que ele não escreve históris ruins</p>
-        
+    <main class="layout-page home-center">
+        <section class="panel home-panel">
+            <h2>Para quem colore meus dias.</h2>
+            <p>Você faz meus dias melhores!</p>
+            <a href="menssagem.html" class="btn-link">
+                <button type="button">Abrir Menssagem</button>
+            </a>
         </section>
     </main>
-    <a href="contador.html" class="btn-link">
-                <button type="button">Ir para o contador</button>
-            </a>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: false },
+            particles: {
+                number: { value: 28, density: { enable: true, area: 800 } },
+                color: { value: ["#ff6b6b", "#ff4d6d", "#ff7b9c"] },
+                shape: {
+                    type: "char",
+                    options: {
+                        char: {
+                            value: ["❤","♥"],
+                            font: "Verdana",
+                            style: "",
+                            weight: "400",
+                            fill: true
+                        }
+                    }
+                },
+                size: { value: 18, random: { enable: true, minimumValue: 8 } },
+                opacity: { value: 0.95 },
+                move: { enable: true, speed: 1.1, direction: "top", outModes: { default: "out" } }
+            },
+            interactivity: {
+                events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } },
+                modes: { repulse: { distance: 100 }, push: { quantity: 3 } }
+            }
+        });
+    </script>
 </body>
 </html>

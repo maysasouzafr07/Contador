@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina2</title>
+    <title>Contador</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,20 +11,55 @@
       <div class="container">
         <h1>Tempo de vida</h1>
 
-        <div id="anos"></div>
-        <div id="meses"></div>
-        <div id="semanas"></div>
-        <div id="dias"></div>
-        <div id="horas"></div>
-        <div id="minutos"></div>
-        <div id="segundos"></div>
+        <div class="grid-calendar">
+            <div class="time-card">
+                <div class="time-value" id="anos">0</div>
+                <div class="time-label">Anos</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="meses">0</div>
+                <div class="time-label">Meses</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="semanas">0</div>
+                <div class="time-label">Semanas</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="dias">0</div>
+                <div class="time-label">Dias</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="horas">0</div>
+                <div class="time-label">Horas</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="minutos">0</div>
+                <div class="time-label">Minutos</div>
+            </div>
+
+            <div class="time-card">
+                <div class="time-value" id="segundos">0</div>
+                <div class="time-label">Segundos</div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
 
-     <a href="index.html" class="btn-link">
+    <div class="bottom-buttons">
+        <a href="menssagem.html" class="btn-link">
+            <button type="button">Voltar para a menssagem</button>
+        </a>
+
+        <a href="index.html" class="btn-link">
             <button type="button">Voltar para o início</button>
         </a>
+    </div>
     
 </body>
 </html>
